@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant Shopper
+    participant Careful individual
+    Shopper->>Basket: addItem(item)
+    Basket->>Shopper: item
+    alt is full
+        Careful individual-->>Basket: isFull()
+        Basket-->>Careful individual: true
+    else is not full
+        Careful individual-->>Basket: isFull()
+        Basket-->>Careful individual: false
+        Careful individual-->>Basket: addItem(item)
+        Basket-->>Careful individual: item
+    end
